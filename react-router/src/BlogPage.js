@@ -1,10 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { blogdata } from "./blogdata"
 
 function BlogPage() {
   return (
-    <div>
-      <h1>Welcome to my Blog Page</h1>
-    </div>
+    <>
+      <h1>BlogPage</h1>
+      <ul>
+        {blogdata.map(post => (
+          <BlogLink post={post} />
+        ))}
+      </ul>
+    </>
   );
 }
-export  { BlogPage };
+
+function BlogLink({ post }) {
+  return (
+    <li>
+      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+    </li>
+  );
+}
+
+export { BlogPage };
