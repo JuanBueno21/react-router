@@ -6,7 +6,7 @@ function Menu() {
     <nav>
       <ul>
         {routes.map(route => (
-          <li>
+          <li key={route.to}>
             <NavLink
               style={({ isActive }) => ({
                 color: isActive ? "red" : "blue",
@@ -60,19 +60,10 @@ function Menu() {
   );
 }
 
-const routes = [];
-routes.push({
-  to: "/home",
-  text: "Home",
-});
-routes.push({
-  to: "/blog",
-  text: "Blog",
-});
-routes.push({
-  to: "/profile",
-  text: "Profile",
-});
-
+const routes = [
+  { to: "/home", text: "Home" },
+  { to: "/blog", text: "Blog" },
+  { to: "/profile", text: "Profile" },
+];
 
 export { Menu };
