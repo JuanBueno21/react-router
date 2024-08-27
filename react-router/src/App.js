@@ -14,13 +14,17 @@ function App() {
 
         <Routes>
           <Route path='/home' element={<HomePage />} />
-          <Route path='/blog' element={<BlogPage />} />
-          <Route path='/blog/:slug' element={<BlogPost />} />
+
+          <Route path='/blog' element={<BlogPage />} >
+            <Route path=':slug' element={<BlogPost />} />
+          </Route>
+          
           <Route path='/profile' element={<ProfilePage />} />
+
           <Route path='*' element={<p>not Found</p>} />
 
         </Routes>
-      </HashRouter>
+      </HashRouter >
     </>
   );
 }
